@@ -86,8 +86,8 @@ namespace EZBlocker
         private string[] hostsContentLines;
         private string hostsContentText;
 
-        // Usefull booleans
-        private bool noErrors = false;
+        // Usefull boolean
+        public static bool noErrors = false;
 
         public Main()
         {
@@ -154,6 +154,7 @@ namespace EZBlocker
                 if (Process.GetProcessesByName("spotify").Length < 1)
                 {
                     NotifyBalloon("Exiting EZBlocker...", 10000);
+                    noErrors = false;
                     Application.Exit();
                 }
 
@@ -204,7 +205,7 @@ namespace EZBlocker
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 LabelMessage("Is Internet availble?", "");
             }
@@ -328,7 +329,7 @@ namespace EZBlocker
                     Application.Exit();
                 }
             }
-            catch (Exception ex) {}
+            catch {}
         }
 
         /**
@@ -351,7 +352,7 @@ namespace EZBlocker
                     if (version >= 4) return true;
                 }
             }
-            catch (Exception ex) {}
+            catch {}
             return false;
         }
 
@@ -545,7 +546,7 @@ namespace EZBlocker
                 Properties.Settings.Default.Save();
                 MessageBox.Show("You may need to restart Spotify or your computer for this setting to take effect.", "EZBlocker", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch
             {
                 string option = "applying";
                 if (!checkBoxBlockAds.Checked)
@@ -577,7 +578,7 @@ namespace EZBlocker
             {
                 Process.Start(mixerExec);
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Could not open mixer. This is only available on Windows 7/8/10", "EZBlocker");
             }
@@ -698,7 +699,7 @@ namespace EZBlocker
                                 }
                             }
                         }
-                        catch (Exception ex)
+                        catch
                         {
                             MessageBox.Show("Unable to find Spotify.exe\r\nI'm going blind...", "EZBlocker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             blindMode = true;
@@ -734,7 +735,7 @@ namespace EZBlocker
                         KillSpotify();
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
                     NotifyBalloon("Enable 'Allow Spotify to be opened from the web' in your Spotify 'Preferences' -> 'Advanced settings'. to use EZBlocker", 10000);
                     Application.Exit();
@@ -756,7 +757,7 @@ namespace EZBlocker
                 File.WriteAllBytes(newtonsoftJsonDll, Properties.Resources.Newtonsoft_Json);
                 File.WriteAllBytes(coreAudioDll, Properties.Resources.CoreAudio);
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Error loading EZBlocker dependencies. Please run EZBlocker as administrator or put EZBlocker in a user folder.");
             }
@@ -832,7 +833,7 @@ namespace EZBlocker
                             RemoveString(ref hostsContentText, hostsContentLines[loadingStuck]);
                             File.WriteAllText(hostsFile, hostsContentText);
                         }
-                        catch (Exception ex)
+                        catch
                         {
                             error = 1;
                             MessageBox.Show("An error has been detected in your hosts file but it couldn't be fixed.\r\nTry to remove manually from that file this line:\r\n\r\n" + hostsContentLines[loadingStuck], "EZBlocker", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -854,7 +855,7 @@ namespace EZBlocker
                             }
                             File.WriteAllText(hostsFile, hostsContentText);
                         }
-                        catch (Exception ex)
+                        catch
                         {
                             error = 1;
                             hostsContentText = GetTextFromLines(GetHostsContentLines());
@@ -950,8 +951,8 @@ namespace EZBlocker
         {
             if (Properties.Settings.Default.MuteAds && noErrors && !Properties.Settings.Default.BlockAds)
             {
-                //var result = MessageBox.Show("Spotify ads will not be muted if EZBlocker is not running.\r\n\r\nAre you sure you want to exit?", "EZBlocker", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                //e.Cancel = (result == DialogResult.No);
+                var result = MessageBox.Show("Spotify ads will not be muted if EZBlocker is not running.\r\n\r\nAre you sure you want to exit?", "EZBlocker", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                e.Cancel = (result == DialogResult.No);
             }
         }
     }

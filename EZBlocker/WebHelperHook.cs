@@ -34,6 +34,7 @@ namespace EZBlocker
             {
                 csrfToken = "";  // Block rest of CSRF calls
                 System.Windows.Forms.MessageBox.Show("Error hooking Spotify. Please restart EZBlocker after restarting Spotify.", "Error");
+                Main.noErrors = false;
                 System.Windows.Forms.Application.Exit();
             }
             CSRF res = JsonConvert.DeserializeObject<CSRF>(json);

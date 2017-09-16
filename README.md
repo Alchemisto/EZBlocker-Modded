@@ -4,6 +4,9 @@ This modded version is based on the latest official release (1.6.8.6)
 
 --- Changelogs ---
 
+ Version 1.0.2.3:
+ - Re-enabled and fixed warning 'Spotify ads will not be muted...'
+ 
  Version 1.0.2.2:
  - Updated assembly society
 
