@@ -4,6 +4,9 @@ This modded version is based on the latest official release (1.6.8.6)
 
 --- Changelogs ---
 
+ Version 1.0.2.2:
+ - Updated assembly society
+
  Version 1.0.2.1:
  - Graphics changes
  
