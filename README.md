@@ -4,6 +4,9 @@ This modded version is based on the latest official release (1.6.8.6)
 
 --- Changelogs ---
 
+ Version 1.0.2.4:
+ - Finished cleanup started on previous release
+ 
  Version 1.0.2.3:
  - Re-enabled and fixed warning 'Spotify ads will not be muted...'
  

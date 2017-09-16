@@ -87,7 +87,7 @@ namespace EZBlocker
             {
                 result = GetPage(GetURL("/remote/status.json" + "?oauth=" + oauthToken + "&csrf=" + csrfToken));
             }
-            catch (WebException ex)
+            catch
             {
                 whr.isRunning = false;
                 return whr;
