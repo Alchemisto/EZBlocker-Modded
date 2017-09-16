@@ -55,7 +55,7 @@
     <StartupObject>EZBlocker.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>EZBlocker.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\EZBlocker.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CoreAudio, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -117,10 +117,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EZBlocker.ico" />
+    <None Include="Resources\EZBlocker.ico" />
     <Content Include="Resources\CoreAudio.dll" />
+    <None Include="Resources\Exit.png" />
+    <None Include="Resources\EZBlocker_1.png" />
+    <None Include="Resources\EZBlocker_Logo.png" />
+    <None Include="Resources\Issue.png" />
+    <None Include="Resources\Minimize.png" />
     <Content Include="Resources\Newtonsoft.Json.dll" />
     <Content Include="Resources\nircmd.exe" />
+    <None Include="Resources\Options_1.png" />
+    <None Include="Resources\Options_2.png" />
+    <None Include="Resources\Simbol.png" />
+    <None Include="Resources\Sound.png" />
+    <None Include="Resources\Spotify_Logo.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
